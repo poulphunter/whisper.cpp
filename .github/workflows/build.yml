@@ -543,10 +543,8 @@ jobs:
       - name: Configure
         run: >
           cmake -S . -B ./build -A ${{ matrix.arch }}
-          -DCMAKE_TOOLCHAIN_FILE="$env:VCPKG_INSTALLATION_ROOT/scripts/buildsystems/vcpkg.cmake"
           -DCMAKE_BUILD_TYPE=${{ matrix.build }}
-          -DGGML_VULKAN=1
-          -DWHISPER_SDL2=${{ matrix.sdl2 }}
+          -DGGML_VULKAN=ON
 
       - name: Build
         run: |
