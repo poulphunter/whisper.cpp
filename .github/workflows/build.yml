@@ -497,8 +497,6 @@ jobs:
         arch: [x64]
         sdl2: [ON]
         include:
-          - arch: Win32
-            s2arc: x86
           - arch: x64
             s2arc: x64
           - sdl2: ON
@@ -545,6 +543,7 @@ jobs:
           cmake -S . -B ./build -A ${{ matrix.arch }}
           -DCMAKE_BUILD_TYPE=${{ matrix.build }}
           -DGGML_VULKAN=ON
+          -DWHISPER_SDL2=${{ matrix.sdl2 }}
 
       - name: Build
         run: |
